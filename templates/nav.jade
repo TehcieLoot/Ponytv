@@ -1,0 +1,45 @@
+- var links = { "/": "Home" }
+
+mixin navlink(page, title, active)
+  if active
+    li.active
+      a(href=page)= title
+  else
+    li
+      a(href=page)= title
+
+mixin navdefaultlinks(page)
+  each t, p in links
+    if p == page
+      mixin navlink(p, t, true)
+    else
+      mixin navlink(p, t, false)
+
+
+mixin navloginlogout(redirect)
+  if loggedIn
+    mixin navlogoutform(redirect)
+  else
+    mixin navloginform(redirect)
+
+mixin navloginform(redirect)
+  ul.nav.navbar-nav.pull-right
+    li: a(href="/login") Login
+
+mixin navlogoutform(redirect)
+  if loginDomain == null
+    - loginDomain = ""
+  if redirect
+    - url = "logout?redirect=" + redirect
+  else
+    - url = "logout"
+
+  ul.nav.navbar-nav.pull-right
+    li.dropdown
+      a.dropdown-toggle(href="#", data-toggle="dropdown") #{loginName}&nbsp;
+        b.caret
+        ul.dropdown-menu
+          li: a(href="/account/channels") Channels
+          li: a(href="/account/profile") Edit Profile
+          li.divider
+          li: a(href="/logout?dest=#{encodeURIComponent(baseUrl + redirect)}&_csrf=#{csrfToken}") Logout

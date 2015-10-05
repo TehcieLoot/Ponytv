@@ -1,0 +1,97 @@
+#chatwrap {
+  div[class^="chat-msg-"] {
+    .timestamp {
+      color: $text-muted;
+      margin-right: 5px;
+    }
+  }
+
+  #userlist {
+    display: block;
+  }
+}
+
+.poll-notify,
+.server-msg-reconnect,
+.server-msg-disconnect {
+  border-radius: 15px;
+  border: none;
+  color: #ffffff;
+}
+
+.poll-notify {
+  padding: 5px 0;
+  text-align: center;
+  font-size: 14px;
+  background: $brand-info
+}
+
+.server-msg-reconnect {
+  background: $brand-primary;
+
+}
+
+.server-msg-disconnect {
+  border-radius: 15px;
+  background: $brand-danger;
+  font-size: 12px;
+  padding: 6px 0;
+}
+
+.nano {
+  position: relative;
+}
+
+.userlist.nano {
+  float: left;
+  width: 120px;
+  height: 301px;
+}
+.messagebuffer.nano {
+  width: 330px;
+  height: 301px;
+}
+
+.nano {
+  .nano-content {
+    padding: 10px;
+    height: 301px;
+  }
+
+  > .nano-pane {
+    display: block !important;
+    background: #ffffff;
+    border: none;
+  }
+
+  > .nano-pane > .nano-slider {
+    background: $text-muted;
+
+  }
+}
+
+#messagebuffer,
+.userlist {
+  height: 301px !important;
+}
+
+#userlisttoggle {
+  margin-right: 5px;
+ }
+
+#chatline {
+  margin-top: 10px;
+  border: none;
+  background: #ededed;
+  box-shadow: none;
+}
+
+.user-dropdown,
+.profile-box {
+  background: #ffffff;
+  z-index: 10001;
+}
+
+.user-dropdown {
+  margin-bottom: 20px;
+}
